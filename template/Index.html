@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Firewall</title>
+    <style>
+        body {
+            background-image: url("https://wallpaperaccess.com/full/2529708.jpg");
+            font-family: Arial, sans-serif;
+            /* background-color: #9bdce8; */
+            margin: 0;
+            padding: 20px;
+        }
+        h2{
+            text-align: left;
+            color: rgba(124, 3, 124, 0.98);
+        }
+        form {
+            max-width: 400px;
+            max-height:790px;
+            margin: 0 left;
+            background-color: #fff2f26c;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        div{
+
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 300px;
+            /* border: 3px solid #73AD21; */
+            color:rgb(255, 255, 255);
+            font-size: 24px ;
+        }
+        
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #5da8f9;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{url_for('predict')}}" method="post">
+        <h2>Fill the Details</h2>
+        
+        <label for="sourcePort">Source Port:</label>
+        <input type="text" id="sourcePort" name="sourcePort" placeholder="Source Port" required>
+        
+        <label for="destinationPort">Destination Port:</label>
+        <input type="text" id="destinationPort" name="destinationPort" placeholder="Destination Port" required>
+        
+        <label for="natSourcePort">NAT Source Port:</label>
+        <input type="text" id="natSourcePort" name="natSourcePort" placeholder="NAT Source Port" required>
+        
+        <label for="natDestinationPort">NAT Destination Port:</label>
+        <input type="text" id="natDestinationPort" name="natDestinationPort" placeholder="NAT Destination Port" required>
+        
+        <label for="bytes">Bytes:</label>
+        <input type="text" id="bytes" name="bytes" placeholder="Bytes" required>
+        
+        <label for="bytesSent">Bytes Sent:</label>
+        <input type="text" id="bytesSent" name="bytesSent" placeholder="Bytes Sent" required>
+        
+        <label for="bytesReceived">Bytes Received:</label>
+        <input type="text" id="bytesReceived" name="bytesReceived" placeholder="Bytes Received" required>
+        
+        <label for="packets">Packets:</label>
+        <input type="text" id="packets" name="packets" placeholder="Packets" required>
+        
+        <label for="elapsedTime">Elapsed Time (sec):</label>
+        <input type="text" id="elapsedTime" name="elapsedTime" placeholder="Elapsed Time (sec)" required>
+        
+        <label for="pktsSent">pkts_sent:</label>
+        <input type="text" id="pktsSent" name="pktsSent" placeholder="pkts_sent" required>
+        
+        <label for="pktsReceived">pkts_received:</label>
+        <input type="text" id="pktsReceived" name="pktsReceived" placeholder="pkts_received" required>
+        <br>
+        <br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <br>
+    <div>{{prediction_text}}</div>
+
+
+</body>
+</html>
